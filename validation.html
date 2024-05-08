@@ -1,0 +1,68 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+ <meta charset="UTF-8"> 
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+ <title>Document</title> 
+ <style>
+    .a{
+        width: 300px;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        background-color: lavender;
+        margin-top: 200px;
+        margin-left: 500px;
+        border: 1px solid black;
+    }
+    .b{
+        margin-top: 20px;
+        width: 100px;
+        height: 30px;
+        border-radius: 25px;
+        border: none;
+        background-color: rgba(0, 0, 0, 0.627);
+        color: white;
+    }
+ </style>
+</head> 
+<body> 
+ <form id="f1"> 
+    <div class="a">
+        <table align="center"> 
+            <tr> 
+            <td><label for="name">Name:</label></td> 
+            <td><input type="text" id="name" name="name" required></td> 
+            </tr> 
+            <tr> 
+            <td><label for="email">Email:</label></td> 
+            <td><input type="email" id="email" name="email" required></td> 
+            </tr> 
+            <tr> 
+            <td><label for="password">Password:</label></td> 
+            <td><input type="password" id="password" name="password" required></td> 
+            </tr> 
+            <tr> 
+            <td><button type="submit" onclick="validate()" class="b">Submit</button></td> 
+            </tr> 
+            </table> 
+    </div>
+ </form> 
+ <script> 
+    function validate(event) { 
+    event.preventDefault(); 
+    var name = document.getElementById("name").value; 
+    var email = document.getElementById("email").value; 
+    var password = document.getElementById("password").value; 
+    if (name === "" || email === "" || password === "") { 
+       alert("All fields are required."); 
+    } 
+    else { 
+       alert("Form submitted successfully!\nName: " + name + "\nEmail: " + email); 
+       document.getElementById("f1").reset(); 
+    } 
+    } 
+    document.getElementById("f1").addEventListener("submit",validate); 
+    </script> 
+</body> 
+</html>
